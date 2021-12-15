@@ -14,3 +14,7 @@ github:
     master: true
     branches: true
     pullRequests: true
+    
+vscode:
+  extensions:
+    - svelte.svelte-vscode
