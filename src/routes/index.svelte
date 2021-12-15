@@ -8,17 +8,21 @@
   <title>{title}</title>
 </svelte:head>
 
-<h1>{title}</h1>
+<div class="todos">
+  <h1>{title}</h1>
 
-<form action="/todos.json" method="post" class="new">
-  <input
-    type="text"
-    name="text"
-    aria-label="Add a todo"
-    placeholder="+ type to add a todo"
-  />
-</form>
-<TodoItem />
+  <form action="/todos.json" method="post" class="new">
+    <input
+      type="text"
+      name="text"
+      aria-label="Add a todo"
+      placeholder="+ type to add a todo"
+    />
+  </form>
+  <TodoItem />
+  <TodoItem />
+  <TodoItem />
+</div>
 
 <style>
   .todos {
