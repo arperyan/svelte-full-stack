@@ -1,13 +1,15 @@
-<script>
+<script lang="ts">
+  export let todo: Todo;
+  $: console.log(todo);
 </script>
 
-<div class="todo done">
+<div class="todo">
   <form action="" method="post">
-    <input type="hidden" name="done" value="" />
+    <input type="hidden" name="done" />
     <button aria-label="Mark done/not done" class="toggle" />
   </form>
   <form action="" method="post" class="text">
-    <input type="text" name="" />
+    <input type="text" name="" value={todo.text} />
     <button aria-label="Save todo" class="save" />
   </form>
 
