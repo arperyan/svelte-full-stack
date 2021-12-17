@@ -2,7 +2,7 @@ import type { Request } from "@sveltejs/kit";
 
 let todos: Todo[] = [];
 
-export const api = (request: Request, todo?: Todo) => {
+export const api = (request: Request, data?: Record<string, unknown>) => {
     let body = {};
     let status = 500;
     let headers = {};
@@ -14,13 +14,23 @@ export const api = (request: Request, todo?: Todo) => {
             break;
         }
         case "POST": {
-            todos.push(todo);
+            todos.push(data as Todo);
             status = 201;
-            body = todo;
+            body = data;
         }
         case "DELETE": {
             todos = todos.filter((todo) => todo.uid !== request.params.uid);
             status = 200;
+        }
+        case "PATCH": {
+            status = 200;
+            todos = todos.map((todo) => {
+                if (todo.uid === request.params.uid) {
+                    todo.text = data.text as string;
+                }
+                return todo;
+            });
+            break;
         }
         default: {
             break;

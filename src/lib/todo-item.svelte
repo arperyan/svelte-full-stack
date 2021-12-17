@@ -8,8 +8,8 @@
         <input type="hidden" name="done" />
         <button aria-label="Mark done/not done" class="toggle" />
     </form>
-    <form action="" method="post" class="text">
-        <input type="text" name="" value={todo.text} />
+    <form action="/todos/{todo.uid}.json?_method=patch" method="post" class="text">
+        <input type="text" name="text" value={todo.text} />
         <button aria-label="Save todo" class="save" />
     </form>
 
