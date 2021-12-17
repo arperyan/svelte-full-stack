@@ -1,4 +1,4 @@
-image: pitpod/workspace-postgres
+image: gitpod/workspace-postgres
 
 tasks:
   - init: npm install
