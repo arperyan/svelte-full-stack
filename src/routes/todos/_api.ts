@@ -30,6 +30,7 @@ export const api = (request: Request, data?: Record<string, unknown>) => {
                 }
                 return todo;
             });
+            body = todos.find((todo) => todo.uid === request.params.uid);
             break;
         }
         default: {
@@ -37,7 +38,7 @@ export const api = (request: Request, data?: Record<string, unknown>) => {
         }
     }
 
-    if (request.method.toUpperCase() !== "GET") {
+    if (request.method.toUpperCase() !== "GET" && request.headers.accept !== "application/json") {
         return {
             status: 303,
             headers: {
