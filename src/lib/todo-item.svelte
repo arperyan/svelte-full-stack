@@ -4,7 +4,7 @@
     export let processUpdatedTodoResult: (res: Response) => void;
     export let processDeletedTodoResult: (res: Response) => void;
 
-    $: console.log(todo);
+    // $: console.log(todo);
 </script>
 
 <div class="todo" class:done={todo.done}>
